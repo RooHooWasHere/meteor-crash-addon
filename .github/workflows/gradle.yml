@@ -4,7 +4,7 @@
 name: Java CI with Gradle
 
 concurrency:
-  group: "build-1.21.3"
+  group: "build-1.21.1"
   cancel-in-progress: true
 
 on:
@@ -22,7 +22,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: 21
-        distribution: 'zulu'
+        distribution: 'zulu'    
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
@@ -32,8 +32,8 @@ jobs:
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest-1.21.3"
+          automatic_release_tag: "latest-1.21.1"
           prerelease: false
-          title: "1.21.3 Build"
+          title: "1.21.1 Build"
           files: |
             ./build/libs/*.jar
